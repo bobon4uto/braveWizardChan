@@ -30,7 +30,7 @@ BepInEx will generate all the necessary files automatically, now open the `BepIn
 Enabled = true
 ```
 ### Download the mod
-Download `braveWizardChan.zip` from this repo release page (TODO)
+Download `braveWizardChan.zip` from this repo [release page](https://github.com/bobon4uto/braveWizardChan/releases/tag/mod1.0.0) ([direct link to file](https://github.com/bobon4uto/braveWizardChan/releases/download/mod1.0.0/braveWizardChan.zip))
 ### Install the mod
 unzip `BepInEx` folder from `braveWizardChan.zip` to the *game folder* **(open the zip, drag and drop)**  
 notice, that this BepInEx will be merged with an existing one. Zip file is structured specifically to enable this trick. If you want to explicitly install the mod, create `BepInEx/plugins` folder in the game directory, and copy `braveChanWizard` folder from `braveChanWizard.zip/BepInEx/plugins` to new folder.
@@ -41,7 +41,7 @@ Do note that brave WizardChan is op, many puzzles just break with her being able
 You will need:
 - [dotnet](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-5.0.17-windows-x64-installer) (it will pull BepInEx libs from nupkgs and do the compilation)
 - [BepInEx](#download-bepinex)  installed in the game folder
-- AN Already installed mod (You actually dont need the mod itself, but specific DLL)
+- AN Already [installed mod](#download-the-mod) (You actually don't need the mod itself, but specific DLL)
 - OR [MonoMod](https://github.com/MonoMod/MonoMod/releases/tag/v22.07.31.01)
 
 It will be a bit more complicated with MonoMod, but you will be able to compile/make mods for different versions of the game (in fact, for any unity mono game)
