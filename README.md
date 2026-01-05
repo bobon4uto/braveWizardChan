@@ -1,5 +1,5 @@
 # braveWizardChan
-a mod for Treasure 'n Trio that makes WizardChan brave  
+a mod for [Treasure 'n Trio](https://store.steampowered.com/app/3214530/Treasure_n_Trio/) that makes WizardChan brave  
 ## Installation
 ### finding game folder
 First, find the game folder (where exe file is)  
