@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- This build assumes BepInEx is installed and MMHOOK file is generated, read the README.md for more info.-->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>braveWizardChan</AssemblyName>
+    <Product>brave Wizard Chan</Product>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>braveWizardChan</RootNamespace>
+    <!--  Assuming normal steam installation.  -->
+    <GameName>Treasure 'n Trio</GameName>
+    <GameFolder>C:\Program Files (x86)\Steam\steamapps\common\$(GameName)</GameFolder>
+    <PostBuildEvent>xcopy "$(OutDir)$(AssemblyName).dll" "$(GameFolder)\BepInEx\plugins\$(AssemblyName)\" /Y</PostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+  
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+  <!-- 
+    Do note there is no such thing as local PluginInfoProps, 
+    as BepInEx dlls dont have them, you have to use this from repo 
+    (or not use it at all, check BepInEx documentation.)
+    Usually there are no conflicts in BepInEx, 
+    but if its the case you might wanna Reference locally. 
+    Uncomment this and comment out the line that references BepInEx.dll
+  -->
+  <!--
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+  -->
+    <Reference Include="$(GameFolder)\BepInEx\core\BepInEx.dll"> <Private>false</Private> </Reference>
+ 
+ <!-- If you already installed the mod, this file will be in the correct folder. Otherwise go to README.md building section-->
+    <Reference Include="$(GameFolder)\BepInEx\plugins\$(AssemblyName)\MMHOOK_Assembly-CSharp.dll">
+      <Private>false</Private>
+    </Reference>
+ <!-- to avoid System.void errors we just include what we need from the game -->
+    <!-- Engine -->
+    <Reference Include="$(GameFolder)\$(GameName)_Data\Managed\Unity*.dll">
+      <Private>false</Private>
+    </Reference>
+    <!-- Main logic -->
+    <Reference Include="$(GameFolder)\$(GameName)_Data\Managed\Assembly-CSharp.dll">
+      <Private>false</Private>
+    </Reference>
+ 
+ 
+ 
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
