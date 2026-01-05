@@ -72,7 +72,8 @@ Run this command (Note that this assumes normal steam path. you can find this `A
 .\MonoMod.RuntimeDetour.HookGen.exe "C:\Program Files (x86)\Steam\steamapps\common\Treasure 'n Trio\Treasure 'n Trio_Data\Managed\Assembly-CSharp.dll"
 ```
 If its cmd you don't have to put .\ before exe name. More on HookGen usage [here](https://github.com/MonoMod/MonoMod/blob/master/README-RuntimeDetour.md#using-hookgen).
-This will generate `MMHOOK_Assembly-CSharp.dll` inside `Treasure 'n Trio_data/managed` folder, create `BepInEx/plugins/braveWizardChan` folder, move `MMHOOK_Assembly-CSharp.dll` to `BepInEx/plugins/braveWizardChan` folder. 
+This will generate `MMHOOK_Assembly-CSharp.dll` inside `Treasure 'n Trio_data/managed` folder,  
+create `BepInEx/plugins/braveWizardChan` folder, move `MMHOOK_Assembly-CSharp.dll` to `BepInEx/plugins/braveWizardChan` folder. 
 
  Now you can follow [Building process with an already instlled mod](#building-process-with-an-already-instlled-mod)   
  *(why markdown is so weird? What do you mean I have to write it all with `-` instead of space and no capital letters??)*
